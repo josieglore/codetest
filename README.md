@@ -10,7 +10,7 @@ The point of this test is to understand how you approach a technical problem. Th
 We expect this test to take you about 6 - 10 hours. Given that most people are busy, We'd like to hear back from you within 72 hours of starting.
 
 #### As soon as you begin:
-* [ ] Fork this repository into a public repository on your github/etc account
+* [X] Fork this repository into a public repository on your github/etc account
 
 #### While working on this, please:
 * [ ] Commit early and often. I'll likely be following along with your progress.
