@@ -10,7 +10,7 @@ app.use(cors());
 app.use(bodyParser.json());
 
 app.get('/movies/', movieController.getMovies, (req, res) => { 
-  return res.status(200).json({ 'movie title': res.locals.movie });
+  return res.status(200).json({ 'movies': res.locals.movies });
 });
 app.post('/movies/newmovie', movieController.addMovie, (req, res) => {
   return res.status(200).json({ 'new movie added': res.locals.newMovie });

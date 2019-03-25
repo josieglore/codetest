@@ -6,8 +6,8 @@ function getMovies(req, res, next) {
   const getMovieStr = 'SELECT movie_title, photo_url, factoid FROM movie_factoids';
   pgClient.query(getMovieStr, (err, result) => {
     if (err) return res.status(400).json({ error: 'Unable to retrieve movie factoid' });
-    res.locals.movie = result.rows;
-    console.log(res.locals.movie)
+    res.locals.movies = result.rows;
+    console.log(res.locals.movies)
     next();
   });
 }
