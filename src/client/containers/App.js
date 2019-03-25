@@ -9,9 +9,11 @@ class App extends Component {
       movies: [],
       title: '',
       url: '',
-      factoid: ''
+      factoid: '',
+      index: 0,
     }
     this.getMovies = this.getMovies.bind(this);
+    this.getNextFactoid = this.getNextFactoid.bind(this);
   }
   getMovies() {
     axios.get('http://localhost:3000/movies/')
@@ -34,14 +36,30 @@ class App extends Component {
         console.log(err)
     })
   }
+  getNextFactoid() {
+    const { index, movies } = this.state;
+    const newIndex = index + 1;
+    this.setState({
+      title: movies[newIndex].movie_title,
+      url: movies[newIndex].photo_url,
+      factoid: movies[newIndex].factoid,
+      index: newIndex,
+    })
+  }
   componentDidMount() {
     this.getMovies();
   }
   render() {
+    const { title, url, factoid } = this.state;
     return (
       <div>
         <h1>Movies</h1>
-        <FactoidCard />
+        <FactoidCard 
+          title={title}
+          url={url}
+          factoid={factoid}
+        />
+        <button onClick={() => {this.getNextFactoid()}}>Next Movie</button>
       </div>
     );
   }
