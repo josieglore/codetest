@@ -9,10 +9,10 @@ const app = express();
 app.use(cors());
 app.use(bodyParser.json());
 
-app.get('/movie/:id', movieController.getMovie, (req, res) => { 
+app.get('/movies/', movieController.getMovies, (req, res) => { 
   return res.status(200).json({ 'movie title': res.locals.movie });
 });
-app.post('/movie/newmovie', movieController.addMovie, (req, res) => {
+app.post('/movies/newmovie', movieController.addMovie, (req, res) => {
   return res.status(200).json({ 'new movie added': res.locals.newMovie });
 });
 
