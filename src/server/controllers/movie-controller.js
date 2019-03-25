@@ -14,8 +14,8 @@ function getMovies(req, res, next) {
 
 function addMovie(req, res, next) {
   const { title, url, description, factoid } = req.body;
-  const values = [title, url, factoid];
-  const addMovieStr = 'INSERT INTO movie_factoids(movie_title, photo_url, description, factoid) VALUES ($1, $2, $3)';
+  const values = [title, url, description, factoid];
+  const addMovieStr = 'INSERT INTO movie_factoids(movie_title, photo_url, description, factoid) VALUES ($1, $2, $3, $4)';
   pgClient.query(addMovieStr, values, (err, result) => {
     if (err) return res.status(400).json({ error: 'Unable to add movie card' });
     res.locals.newMovie = result;

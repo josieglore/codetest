@@ -29,6 +29,7 @@ class App extends Component {
     // this.onImageDrop = this.onImageDrop.bind(this);
     this.showUploadWidget = this.showUploadWidget.bind(this);
     this.handleInputChange = this.handleInputChange.bind(this);
+    this.submitFactoid = this.submitFactoid.bind(this);
   }
   getMovies() {
     axios.get('http://localhost:3000/movies/')
@@ -178,16 +179,43 @@ class App extends Component {
     }
   }
 
+  submitFactoid() {
+    const { newTitle, newUrl, newDescription, newFactoid, movies } = this.state;
+    axios.post('http://localhost:3000/movies/newmovie', {
+      title: newTitle,
+      url: newUrl,
+      description: newDescription,
+      factoid: newFactoid,
+    }) 
+    .then(() => {
+      const newMovieObj = {
+        movie_title: newTitle,
+        photo_url: newUrl,
+        description: newDescription,
+        factoid: newFactoid,
+      };
+      this.setState({
+      newTitle: '',
+      newUrl: '',
+      newDescription: '',
+      newFactoid: '',
+      showModal: false,
+      movies: movies.concat([newMovieObj]),
+    })});
+  }
+
   componentDidMount() {
     this.getMovies();
   }
 
   render() {
-    const { title, url, description, factoid, showModal } = this.state;
+    const { title, url, description, factoid, newUrl, showModal } = this.state;
     const newFactoid = showModal ? 
       <NewFactoid 
           showUploadWidget={this.showUploadWidget}
           handleInputChange={this.handleInputChange}
+          submitFactoid={this.submitFactoid}
+          newUrl={newUrl}
       /> : null;
     return (
       <div>
