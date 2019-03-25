@@ -201,7 +201,8 @@ class App extends Component {
       newFactoid: '',
       showModal: false,
       movies: movies.concat([newMovieObj]),
-    })});
+    })})
+    alert('Movie factoid added to deck!');
   }
 
   componentDidMount() {
@@ -219,7 +220,7 @@ class App extends Component {
       /> : null;
     return (
       <div>
-        <h1>Movies</h1>
+        <div><h1>Movies</h1></div>
         <FactoidCard 
           title={title}
           url={url}

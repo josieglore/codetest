@@ -37,16 +37,16 @@ The User Interface should be made out of a MVVM or MVC style frontend technology
 The Backend should be node.js with whatever middlewares you'd like to use.
 
 #### Interactions to support
-* [ ] Please provide a RESTful backend for the CRUDL of factoids
-* [ ] Factoids should be transported to the UI via JSON
-* [ ] Factoids should be stored in some sort of SQL/NoSQL/Flat File on the backend
+* [X] Please provide a RESTful backend for the CRUDL of factoids
+* [X] Factoids should be transported to the UI via JSON
+* [X] Factoids should be stored in some sort of SQL/NoSQL/Flat File on the backend
 
 ## BONUS
 
 If you're too cool for school and knocked all the above out already, consider adding some improvements to what you've made.
 
 ### Suggestions for improvements
-* [ ] Integrate this with an external Service or API
+* [X] Integrate this with an external Service or API
 * [ ] Write a test or two
 * [ ] Add CD/CI to your project
 * [ ] Edit this ReadMe with new suggestions for how to improve this code test

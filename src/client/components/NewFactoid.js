@@ -29,19 +29,19 @@ const NewFactoid = (props) => {
         onChange={handleInputChange}>
       </input>
       <p>Description of the Movie</p>
-      <input 
+      <textarea 
         id='newDescription'
         type='text'
         onChange={handleInputChange}
       >
-      </input>
+      </textarea>
       <p>Fun Factoid</p>
-      <input 
+      <textarea 
         id='newFactoid'
         type='text'
         onChange={handleInputChange}
       >
-      </input>
+      </textarea>
       <input value={newUrl}></input><button onClick={showUploadWidget}>Upload Photo</button>
       <button onClick={() => submitFactoid()}>Submit Factoid</button>
     </div>

@@ -1,4 +1,5 @@
 const path = require('path');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
   mode: 'development',
@@ -20,6 +21,13 @@ module.exports = {
         },
       },
       {
+        test: /\.css$/,
+        use:
+          process.env.NODE_ENV === 'production'
+            ? [MiniCssExtractPlugin.loader, 'css-loader']
+            : ['style-loader', 'css-loader'],
+      },
+      {
         test: /\.s?css$/,
         use: [
           {
@@ -33,12 +41,18 @@ module.exports = {
           },
         ],
       },
-    ]
+    ],
   },
   devServer: {
     publicPath: '/build/',
     // contentBase: path.join(__dirname, 'build/'),
     compress: true,
     port: 8080,
-  }
+  },
+  plugins: [
+    new HtmlWebpackPlugin({
+      template: './index.html',
+      filename: './index.html'
+    })
+   ],
 };
