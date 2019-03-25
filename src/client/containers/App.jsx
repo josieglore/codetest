@@ -19,8 +19,11 @@ class App extends Component {
       newDescription: '',
       newFactoid: '',
       index: 0,
+      showModal: false,
     }
     this.getMovies = this.getMovies.bind(this);
+    this.showModal = this.showModal.bind(this);
+    this.hideModal = this.hideModal.bind(this);
     this.getNextFactoid = this.getNextFactoid.bind(this);
     this.getPreviousFactoid = this.getPreviousFactoid.bind(this);
     // this.onImageDrop = this.onImageDrop.bind(this);
@@ -72,6 +75,16 @@ class App extends Component {
     })
   }
 
+  showModal() {
+    this.setState({
+      showModal: true
+    });
+  }
+  hideModal() {
+    this.setState({
+      showModal: false
+    })
+  }
   // onImageDrop(images) {
   //   console.log(images)
   //   const uploads = images.map(image => {
@@ -170,7 +183,12 @@ class App extends Component {
   }
 
   render() {
-    const { title, url, description, factoid } = this.state;
+    const { title, url, description, factoid, showModal } = this.state;
+    const newFactoid = showModal ? 
+      <NewFactoid 
+          showUploadWidget={this.showUploadWidget}
+          handleInputChange={this.handleInputChange}
+      /> : null;
     return (
       <div>
         <h1>Movies</h1>
@@ -182,10 +200,9 @@ class App extends Component {
         />
         <button onClick={() => {this.getPreviousFactoid()}}>Previous movie</button>
         <button onClick={() => {this.getNextFactoid()}}>Next Movie</button>
-        <NewFactoid 
-          showUploadWidget={this.showUploadWidget}
-          handleInputChange={this.handleInputChange}
-        />
+        <button onClick={() => {this.showModal()}}
+        >Add New Movie Factoid</button>
+        {newFactoid}
       </div>
     );
   }
