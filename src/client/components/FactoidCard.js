@@ -1,12 +1,12 @@
 import React from 'react';
 
 const FactoidCard = (props) => {
-  const { title, url, factoid } = props;
+  const { title, url, description, factoid } = props;
   return (
     <div>
-      <h1>Movie Goes Here</h1>
-      <p>{title}</p>
+      <h2>{title}</h2>
       <img src={url} style={{maxWidth: 200}}/>
+      <p>{description}</p>
       <p>{factoid}</p>
     </div>
   )
