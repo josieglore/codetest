@@ -25,6 +25,7 @@ class App extends Component {
     this.getPreviousFactoid = this.getPreviousFactoid.bind(this);
     // this.onImageDrop = this.onImageDrop.bind(this);
     this.showUploadWidget = this.showUploadWidget.bind(this);
+    this.handleInputChange = this.handleInputChange.bind(this);
   }
   getMovies() {
     axios.get('http://localhost:3000/movies/')
@@ -146,6 +147,24 @@ class App extends Component {
       ); 
     }
     
+  handleInputChange(e) {
+    if (e.target.id === 'newTitle') {
+      this.setState({
+        newTitle: e.target.value
+      });
+    }
+    if (e.target.id === 'newDescription') {
+      this.setState({
+        newDescription: e.target.value
+      })
+    }
+    if (e.target.id === 'newFactoid') {
+      this.setState({
+        newFactoid: e.target.value
+      })
+    }
+  }
+
   componentDidMount() {
     this.getMovies();
   }
@@ -165,6 +184,7 @@ class App extends Component {
         <button onClick={() => {this.getNextFactoid()}}>Next Movie</button>
         <NewFactoid 
           showUploadWidget={this.showUploadWidget}
+          handleInputChange={this.handleInputChange}
         />
       </div>
     );

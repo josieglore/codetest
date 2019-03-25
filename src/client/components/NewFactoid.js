@@ -19,9 +19,29 @@ import Dropzone from 'react-dropzone';
 // }
 
 const NewFactoid = (props) => {
-  const { showUploadWidget } = props;
+  const { showUploadWidget, handleInputChange } = props;
   return (
     <div>
+      <p>Movie Title</p>
+      <input 
+        id='newTitle' 
+        type='text'
+        onChange={handleInputChange}>
+      </input>
+      <p>Description of the Movie</p>
+      <input 
+        id='newDescription'
+        type='text'
+        onChange={handleInputChange}
+      >
+      </input>
+      <p>Fun Factoid</p>
+      <input 
+        id='newFactoid'
+        type='text'
+        onChange={handleInputChange}
+      >
+      </input>
       <button onClick={showUploadWidget}>Upload Photo</button>
     </div>
   )
