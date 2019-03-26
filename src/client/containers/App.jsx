@@ -31,7 +31,7 @@ class App extends Component {
     this.showUploadWidget = this.showUploadWidget.bind(this);
     this.handleInputChange = this.handleInputChange.bind(this);
     this.submitFactoid = this.submitFactoid.bind(this);
-    this.deleteFactoid = this.deleteFactoid.bind(this);
+    // this.deleteFactoid = this.deleteFactoid.bind(this);
   }
 
   componentDidMount() {
@@ -205,22 +205,22 @@ class App extends Component {
     alert('Movie factoid added to deck!');
   }
 
-  // remove factoid from database and movies array, then proceed to next factoid
-  deleteFactoid() {
-    const { title, index, movies } = this.state;
-    let filteredArr = movies;
-    filteredArr = filteredArr.filter((movie) => {
-      return filteredArr.indexOf(movie) !== index;
-    });
-    fetch(`https://moviefactoids.herokuapp.com/movies/deletemovie/${title}`, {
-      method: 'DELETE',
-    })
-      .then(res => res.json())
-      .then(() => this.setState({
-        movies: filteredArr,
-      }))
-      .then(() => this.getNextFactoid());
-  }
+  // remove factoid from database and movies array, then proceed to next factoid -- needs debugging
+  // deleteFactoid() {
+  //   const { title, index, movies } = this.state;
+  //   let filteredArr = movies;
+  //   filteredArr = filteredArr.filter((movie) => {
+  //     return filteredArr.indexOf(movie) !== index;
+  //   });
+  //   fetch(`https://moviefactoids.herokuapp.com/movies/deletemovie/${title}`, {
+  //     method: 'DELETE',
+  //   })
+  //     .then(res => res.json())
+  //     .then(() => this.setState({
+  //       movies: filteredArr,
+  //     }))
+  //     .then(() => this.getNextFactoid());
+  // }
 
   render() {
     const {
@@ -253,7 +253,7 @@ class App extends Component {
           url={url}
           description={description}
           factoid={factoid}
-          deleteFactoid={this.deleteFactoid}
+          // deleteFactoid={this.deleteFactoid}
         />
         <div style={{ textAlign: 'center' }}>
           <a

@@ -8,10 +8,10 @@ const FactoidCard = (props) => {
     factoid,
     deleteFactoid, 
   } = props;
-  const deleteButton = {
-    marginLeft: 0,
-    backgroundColor: 'dimgray',
-  };
+  // const deleteButton = {
+  //   marginLeft: 0,
+  //   backgroundColor: 'dimgray',
+  // };
   return (
     <div className="col s12 m7">
       <div className="card horizontal">
@@ -20,7 +20,6 @@ const FactoidCard = (props) => {
       </div>
       <div className="card-stacked">
         <div className="card-content">
-          <a className='waves-effect waves-light btn-small' style={deleteButton} onClick={() => deleteFactoid()}>Delete Factoid</a>
           <h3>{title}</h3>
           <p>{description}</p>
           <br />
