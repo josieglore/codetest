@@ -11,9 +11,9 @@ app.use(cors());
 app.use(bodyParser.json());
 
 if (process.env.NODE_ENV === 'production') {
-  app.use(express.static(path.resolve(('../../build/index.html'))));
+  app.use(express.static(path.resolve(('../../build'))));
 }
-app.get('*', (req, res) => {
+app.get('/', (req, res) => {
   res.sendFile(path.resolve(__dirname, '../../build/index.html'));
 });
 
