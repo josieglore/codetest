@@ -1,14 +1,17 @@
 import React from 'react';
-// import { Row, Col, Card } from 'react-materialize';
-// import '../../css/materialize.min.css';
-// import '../../css/materialize.css';
 
 const FactoidCard = (props) => {
-  const { title, url, description, factoid, deleteFactoid } = props;
-  const deleteButton = { 
+  const {
+    title,
+    url,
+    description,
+    factoid,
+    deleteFactoid, 
+  } = props;
+  const deleteButton = {
     marginLeft: 0,
     backgroundColor: 'dimgray',
-  }
+  };
   return (
     <div className="col s12 m7">
       <div className="card horizontal">
@@ -25,10 +28,8 @@ const FactoidCard = (props) => {
         </div>
       </div>
     </div>
-  </div>
-            
-
-  )
-}
+  </div>        
+  );
+};
 
 export default FactoidCard;
