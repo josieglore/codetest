@@ -9,6 +9,8 @@ const app = express();
 app.use(cors());
 app.use(bodyParser.json());
 
+app.use(express.static(path.join(__dirname, '../client/')));
+
 app.get('/movies/', movieController.getMovies, (req, res) => { 
   return res.status(200).json({ 'movies': res.locals.movies });
 });
@@ -23,5 +25,5 @@ app.delete('/movies/deletemovie/:title', movieController.deleteMovie, (req, res)
 
 app.listen(process.env.PORT || 5000, (err) => {
   if (err) console.log(err);
-  else console.log('Server listening on 3000');
+  else console.log('Server listening on 5000');
 });
