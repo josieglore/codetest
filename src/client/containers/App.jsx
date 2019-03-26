@@ -51,7 +51,7 @@ class App extends Component {
           title: movieArray[0].movie_title,
           url: movieArray[0].photo_url,
           description: movieArray[0].description,
-          factoid: movieArray[0].factoid
+          factoid: movieArray[0].factoid,
         });
       })
       .catch((err) => {
@@ -209,6 +209,7 @@ class App extends Component {
   deleteFactoid() {
     const { title, index, movies } = this.state;
     const moviesCopy = movies.filter(movie => movies.indexOf(movie) !== index);
+    console.log(moviesCopy)
     moviesCopy.splice(index, 1);
     fetch(`https://moviefactoids.herokuapp.com/movies/deletemovie/${title}`, {
       method: 'DELETE',
