@@ -14,6 +14,8 @@ app.use(bodyParser.json());
 //   app.use(express.static(path.resolve(('../../build'))));
 // }
 app.use(express.static(__dirname + '/../../build/'));
+app.use(express.static(__dirname + '/../../src/css/'));
+app.use(express.static(__dirname + '/../../src/js/'));
 // express.static(__dirname + '/../../build/');
 
 app.get('/', (req, res) => {
