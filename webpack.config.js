@@ -1,5 +1,5 @@
 const path = require('path');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
+// const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
   mode: 'development',
@@ -49,10 +49,4 @@ module.exports = {
     compress: true,
     port: 8080,
   },
-  plugins: [
-    new HtmlWebpackPlugin({
-      template: './index.html',
-      filename: './index.html'
-    })
-   ],
 };
