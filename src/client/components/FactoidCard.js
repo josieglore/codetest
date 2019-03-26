@@ -6,7 +6,7 @@ const FactoidCard = (props) => {
     url,
     description,
     factoid,
-    deleteFactoid, 
+    // deleteFactoid, 
   } = props;
   // const deleteButton = {
   //   marginLeft: 0,
