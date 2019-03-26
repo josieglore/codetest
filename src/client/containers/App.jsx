@@ -22,7 +22,7 @@ class App extends Component {
       newFactoid: '',
       index: 0,
       showModal: false,
-    }
+    };
     this.getMovies = this.getMovies.bind(this);
     this.showModal = this.showModal.bind(this);
     this.hideModal = this.hideModal.bind(this);
@@ -35,7 +35,7 @@ class App extends Component {
     this.deleteFactoid = this.deleteFactoid.bind(this);
   }
   getMovies() {
-    axios.get('http://localhost:3000/movies/')
+    axios.get('https://moviefactoids.herokuapp.com/movies/')
       .then(response => {
         const movieArray = [];
         response.data.movies.forEach((movie) => {
@@ -184,7 +184,7 @@ class App extends Component {
 
   submitFactoid() {
     const { newTitle, newUrl, newDescription, newFactoid, movies } = this.state;
-    axios.post('http://localhost:3000/movies/newmovie', {
+    axios.post('https://moviefactoids.herokuapp.com/movies/newmovie', {
       title: newTitle,
       url: newUrl,
       description: newDescription,
@@ -211,7 +211,7 @@ class App extends Component {
   deleteFactoid() {
     const { title, index, movies } = this.state;
     const moviesCopy = movies.splice(index, 1);
-    fetch(`http://localhost:3000/movies/deletemovie/${title}`, {
+    fetch(`https://moviefactoids.herokuapp.com/movies/deletemovie/${title}`, {
       method: 'DELETE',
     })
     .then(res => res.json())
