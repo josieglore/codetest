@@ -208,7 +208,7 @@ class App extends Component {
   // remove factoid from database and movies array, then proceed to next factoid
   deleteFactoid() {
     const { title, index, movies } = this.state;
-    const moviesCopy = movies.slice();
+    const moviesCopy = movies.filter(movie => movies.indexOf(movie) !== index);
     moviesCopy.splice(index, 1);
     fetch(`https://moviefactoids.herokuapp.com/movies/deletemovie/${title}`, {
       method: 'DELETE',
