@@ -1,4 +1,5 @@
 require('dotenv').config();
+const path = require('path');
 const express = require('express');
 const bodyParser = require('body-parser');
 const cors = require('cors');
@@ -9,7 +10,12 @@ const app = express();
 app.use(cors());
 app.use(bodyParser.json());
 
-app.use(express.static(path.join(__dirname, '../client/')));
+if (process.env.NODE_ENV === 'production') {
+  app.use(express.static('../../build'));
+}
+app.get('*', (request, response) => {
+  response.sendFile(path.join(__dirname, '../../build', '../../index.html'));
+});
 
 app.get('/movies/', movieController.getMovies, (req, res) => { 
   return res.status(200).json({ 'movies': res.locals.movies });
