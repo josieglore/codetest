@@ -218,6 +218,12 @@ class App extends Component {
       margin: 'auto',
       marginTop: 15,
     };
+    const newFactoidButton = {
+      display: 'flex',
+      margin: 'auto',
+      marginTop: 15,
+      backgroundColor: 'darkslategray'
+    }
     return (
       <div>
         <div><h1>Movies</h1></div>
@@ -231,7 +237,7 @@ class App extends Component {
           <a className='waves-effect waves-light btn' onClick={() => {this.getPreviousFactoid()}}>Previous movie</a>
           <a className='waves-effect waves-light btn' onClick={() => {this.getNextFactoid()}}>Next Movie</a>
         </div>
-        <div style={centered}><a style={centered}className='waves-effect waves-light btn' onClick={() => {this.showModal()}}>Add New Movie Factoid</a></div>
+        <div style={centered}><a style={newFactoidButton} className='waves-effect waves-light btn' onClick={() => {this.showModal()}}>Add New Movie Factoid</a></div>
         <Modal visible={showModal} style={{ width: 500, height: 500}} effect='fadeInUp'>
           <div>
             <NewFactoid 

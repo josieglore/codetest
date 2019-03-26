@@ -1,5 +1,5 @@
-import React, { Component } from 'react';
-import Dropzone from 'react-dropzone';
+import React from 'react';
+
 
 // class NewFactoid extends Component {
 //   constructor(props) {
