@@ -24,7 +24,7 @@ function addMovie(req, res, next) {
 }
 
 function deleteMovie(req, res, next) {
-  const { title } = req.body;
+  const { title } = req.params;
   const value = [title];
   const deleteMovieStr = 'DELETE FROM movie_factoids WHERE movie_title = $1';
   pgClient.query(deleteMovieStr, value, (err, result) => {

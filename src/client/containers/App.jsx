@@ -32,6 +32,7 @@ class App extends Component {
     this.showUploadWidget = this.showUploadWidget.bind(this);
     this.handleInputChange = this.handleInputChange.bind(this);
     this.submitFactoid = this.submitFactoid.bind(this);
+    this.deleteFactoid = this.deleteFactoid.bind(this);
   }
   getMovies() {
     axios.get('http://localhost:3000/movies/')
@@ -207,6 +208,19 @@ class App extends Component {
     alert('Movie factoid added to deck!');
   }
 
+  deleteFactoid() {
+    const { title, index, movies } = this.state;
+    const moviesCopy = movies.splice(index, 1);
+    fetch(`http://localhost:3000/movies/deletemovie/${title}`, {
+      method: 'DELETE',
+    })
+    .then(res => res.json())
+    .then(this.setState({
+      movies: moviesCopy,
+    }))
+    .then(this.getNextFactoid());
+  }
+
   componentDidMount() {
     this.getMovies();
   }
@@ -232,6 +246,7 @@ class App extends Component {
           url={url}
           description={description}
           factoid={factoid}
+          deleteFactoid={this.deleteFactoid}
         />
         <div style={{ textAlign: 'center' }}>
           <a className='waves-effect waves-light btn' onClick={() => {this.getPreviousFactoid()}}>Previous movie</a>

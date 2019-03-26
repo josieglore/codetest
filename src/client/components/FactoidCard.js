@@ -4,7 +4,7 @@ import React from 'react';
 // import '../../css/materialize.css';
 
 const FactoidCard = (props) => {
-  const { title, url, description, factoid } = props;
+  const { title, url, description, factoid, deleteFactoid } = props;
   const deleteButton = { 
     marginLeft: 0,
     backgroundColor: 'dimgray',
@@ -17,7 +17,7 @@ const FactoidCard = (props) => {
       </div>
       <div className="card-stacked">
         <div className="card-content">
-          <a className='waves-effect waves-light btn-small' style={deleteButton}>Delete Factoid</a>
+          <a className='waves-effect waves-light btn-small' style={deleteButton} onClick={() => deleteFactoid()}>Delete Factoid</a>
           <h3>{title}</h3>
           <p>{description}</p>
           <br />
