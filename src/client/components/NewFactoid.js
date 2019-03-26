@@ -6,7 +6,10 @@ const NewFactoid = (props) => {
     handleInputChange,
     submitFactoid,
     newUrl,
-    hideModal, 
+    hideModal,
+    newFactoid,
+    newDescription,
+    newTitle,
   } = props;
   return (
     <div style={{ paddingTop: 25, paddingRight: 25, paddingBottom: 25, paddingLeft: 25 }}>
@@ -14,12 +17,14 @@ const NewFactoid = (props) => {
       <input
         id='newTitle' 
         type='text'
+        value={newTitle}
         onChange={handleInputChange}>
       </input>
       <p>Description of the Movie</p>
       <input 
         id='newDescription'
         type='text'
+        value={newDescription}
         onChange={handleInputChange}
       >
       </input>
@@ -27,6 +32,7 @@ const NewFactoid = (props) => {
       <input 
         id='newFactoid'
         type='text'
+        value={newFactoid}
         onChange={handleInputChange}
         style={{ marginBottom: 15 }}
       >

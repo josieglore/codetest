@@ -227,6 +227,9 @@ class App extends Component {
       factoid,
       newUrl,
       showModal,
+      newTitle,
+      newFactoid,
+      newDescription,
     } = this.state;
     const centered = {
       display: 'flex',
@@ -276,6 +279,9 @@ class App extends Component {
               handleInputChange={this.handleInputChange}
               submitFactoid={this.submitFactoid}
               newUrl={newUrl}
+              newFactoid={newFactoid}
+              newTitle={newTitle}
+              newDescription={newDescription}
               hideModal={this.hideModal}
             />
           </div>
