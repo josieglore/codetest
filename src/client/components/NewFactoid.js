@@ -19,9 +19,9 @@ import Dropzone from 'react-dropzone';
 // }
 
 const NewFactoid = (props) => {
-  const { showUploadWidget, handleInputChange, submitFactoid, newUrl } = props;
+  const { showUploadWidget, handleInputChange, submitFactoid, newUrl, hideModal } = props;
   return (
-    <div>
+    <div style={{ paddingTop: 25, paddingRight: 25, paddingBottom: 25, paddingLeft: 25 }}>
       <p>Movie Title</p>
       <input 
         id='newTitle' 
@@ -29,21 +29,29 @@ const NewFactoid = (props) => {
         onChange={handleInputChange}>
       </input>
       <p>Description of the Movie</p>
-      <textarea 
+      <input 
         id='newDescription'
         type='text'
         onChange={handleInputChange}
       >
-      </textarea>
-      <p>Fun Factoid</p>
-      <textarea 
+      </input>
+      <p>Fun Factoid About the Movie</p>
+      <input 
         id='newFactoid'
         type='text'
         onChange={handleInputChange}
+        style={{ marginBottom: 15 }}
       >
-      </textarea>
-      <input value={newUrl}></input><button onClick={showUploadWidget}>Upload Photo</button>
-      <button onClick={() => submitFactoid()}>Submit Factoid</button>
+      </input>
+      <div>
+        <span>Upload a Photo for the Movie!</span>
+        <span><a className='waves-effect waves-light btn-small' style={{ marginLeft: 15, marginTop: 0 }}onClick={showUploadWidget}>Upload Photo </a></span>
+        </div>
+        <input value={newUrl}></input>
+        <div style={{ textAlign: 'center' }}>
+          <a className='waves-effect waves-light btn' style={{ marginRight: 15}} onClick={() => submitFactoid()}>Submit Factoid</a>
+          <a href='javascript:void(0);' className='waves-effect waves-light btn' style={{ marginLeft: 15 }} onClick={() => hideModal()}>Close</a>
+        </div>
     </div>
   )
 }

@@ -5177,6 +5177,9 @@ small {
   text-transform: uppercase;
   vertical-align: middle;
   -webkit-tap-highlight-color: transparent;
+  margin-right: 275px;
+  margin-left: 275px;
+  margin-top: 10px;
 }
 
 .btn.disabled, .disabled.btn-large, .disabled.btn-small,

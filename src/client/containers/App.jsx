@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios';
+// import Popup from 'reactjs-popup';
+import Modal from 'react-awesome-modal';
 import FactoidCard from '../components/FactoidCard';
 import NewFactoid from '../components/NewFactoid';
 const CLOUDINARY_UPLOAD_PRESET = process.env.CLOUDINARY_UPLOAD_PRESET;
@@ -211,13 +213,11 @@ class App extends Component {
 
   render() {
     const { title, url, description, factoid, newUrl, showModal } = this.state;
-    const newFactoid = showModal ? 
-      <NewFactoid 
-          showUploadWidget={this.showUploadWidget}
-          handleInputChange={this.handleInputChange}
-          submitFactoid={this.submitFactoid}
-          newUrl={newUrl}
-      /> : null;
+    const centered = {
+      display: 'flex',
+      margin: 'auto',
+      marginTop: 15,
+    };
     return (
       <div>
         <div><h1>Movies</h1></div>
@@ -227,11 +227,22 @@ class App extends Component {
           description={description}
           factoid={factoid}
         />
-        <button onClick={() => {this.getPreviousFactoid()}}>Previous movie</button>
-        <button onClick={() => {this.getNextFactoid()}}>Next Movie</button>
-        <button onClick={() => {this.showModal()}}
-        >Add New Movie Factoid</button>
-        {newFactoid}
+        <div style={{ textAlign: 'center' }}>
+          <a className='waves-effect waves-light btn' onClick={() => {this.getPreviousFactoid()}}>Previous movie</a>
+          <a className='waves-effect waves-light btn' onClick={() => {this.getNextFactoid()}}>Next Movie</a>
+        </div>
+        <div style={centered}><a style={centered}className='waves-effect waves-light btn' onClick={() => {this.showModal()}}>Add New Movie Factoid</a></div>
+        <Modal visible={showModal} style={{ width: 500, height: 500}} effect='fadeInUp'>
+          <div>
+            <NewFactoid 
+              showUploadWidget={this.showUploadWidget}
+              handleInputChange={this.handleInputChange}
+              submitFactoid={this.submitFactoid}
+              newUrl={newUrl}
+              hideModal={this.hideModal}
+            />
+          </div>
+        </Modal>
       </div>
     );
   }
