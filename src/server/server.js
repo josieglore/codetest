@@ -12,8 +12,13 @@ app.use(bodyParser.json());
 app.get('/movies/', movieController.getMovies, (req, res) => { 
   return res.status(200).json({ 'movies': res.locals.movies });
 });
+
 app.post('/movies/newmovie', movieController.addMovie, (req, res) => {
   return res.status(200).json({ 'new movie added': res.locals.newMovie });
+});
+
+app.delete('/movies/deletemovie', movieController.deleteMovie, (req, res) => {
+  return res.status(200).json({ 'movie deleted': res.locals.deletedMovie });
 });
 
 app.listen(3000, (err) => {
