@@ -41,7 +41,7 @@ class App extends Component {
 
  // retrieve movie factoids from database and populate movies array in state
   getMovies() {
-    axios.get('https://moviefactoids.herokuapp.com/movies/')
+    axios.get('https://moviefactoids-2.herokuapp.com/movies/')
       .then((response) => {
         const movieArray = [];
         response.data.movies.forEach((movie) => {
@@ -181,7 +181,7 @@ class App extends Component {
       newFactoid,
       movies,
     } = this.state;
-    axios.post('https://moviefactoids.herokuapp.com/movies/newmovie', {
+    axios.post('https://moviefactoids-2.herokuapp.com/movies/newmovie', {
       title: newTitle,
       url: newUrl,
       description: newDescription,
