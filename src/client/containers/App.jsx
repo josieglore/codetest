@@ -5,7 +5,7 @@ import FactoidCard from '../components/FactoidCard';
 import NewFactoid from '../components/NewFactoid';
 
 const CLOUDINARY_UPLOAD_PRESET = process.env.CLOUDINARY_UPLOAD_PRESET;
-console.log('upload preset is ', CLOUDINARY_UPLOAD_PRESET);
+
 
 class App extends Component {
   constructor(props) {
@@ -35,6 +35,7 @@ class App extends Component {
   }
 
   componentDidMount() {
+    console.log('upload preset is ', CLOUDINARY_UPLOAD_PRESET);
     this.getMovies();
   }
 
